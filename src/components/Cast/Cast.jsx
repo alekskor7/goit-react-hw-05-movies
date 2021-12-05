@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import { toast } from 'react-toastify';
-
+import PropTypes from 'prop-types';
 import { getMovieCredits } from '../../Api/Api';
 import error from '../../images/default.png';
 
@@ -73,3 +73,12 @@ export default function Cast({ movieId }) {
     </div>
   );
 }
+
+Cast.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.string,
+    profile_path: PropTypes.string,
+    character: PropTypes.string,
+  }).isRequired,
+};
+

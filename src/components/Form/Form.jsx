@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function Form({ handleSubmit }) {
   const location = useLocation();
@@ -47,3 +48,7 @@ export default function Form({ handleSubmit }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

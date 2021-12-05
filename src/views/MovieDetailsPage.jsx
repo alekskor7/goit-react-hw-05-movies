@@ -4,7 +4,6 @@ import {
   useRouteMatch,
   Link,
   Route,
-  // useHistory,
   useLocation,
 } from 'react-router-dom';
 import Loader from 'react-loader-spinner';
@@ -26,7 +25,6 @@ export default function MovieDetailsPage() {
   const [showLoader, setShowLoader] = useState(false);
   const { movieId } = useParams();
   const { url } = useRouteMatch();
-  // const history = useHistory();
   const location = useLocation();
 
   useEffect(() => {
@@ -46,9 +44,6 @@ export default function MovieDetailsPage() {
     fetchMovieDetails();
   }, [movieId]);
 
-// 1. не сохраняется запрос поиска
-  // const onGoBack = () => { history.push(location?.state?.from ?? '/movies');};
-// 2. сохраняется запрос 
   const [onGoBack] = useState(location?.state?.from ?? '/',);
 
   return (
@@ -59,10 +54,6 @@ export default function MovieDetailsPage() {
 
       {movie && (
         <>
-          {/* 1 */}
-          {/* <button type="button" style={{ marginBottom: '20px' }} onClick={onGoBack}>Go back</button> */}
-
-          {/* 2 */}
           <Link type="button" className={styles.goBack} to={onGoBack}>Go back</Link>
 
           <div>
